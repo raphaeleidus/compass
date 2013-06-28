@@ -46,7 +46,7 @@ module Compass::Exec::ProjectOptionsParser
 
     opts.on('-e ENV', '--environment ENV', 'Use sensible defaults for your current environment.',
             '  defaults to development') do |env|
-      self.options[:environment] = env || :development
+      self.options[:environment] = env.to_sym || :development
     end
 
     opts.on('-s STYLE', '--output-style STYLE', [:nested, :expanded, :compact, :compressed], 'Select a CSS output mode.',
